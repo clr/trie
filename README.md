@@ -4,9 +4,9 @@ This library implements an autocomplete feature as a C-Trie.
 
 ## Installation
 
-I did not publish a gem. Clone it.
+I did not publish a gem. Clone it.  Then run tests:
 
-    $ ./console
+    $ rake
 
 ## Usage
 
