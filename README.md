@@ -15,6 +15,7 @@ From this library directory, run:
     $ ./console
 
 Three dictionaries are included to practice with:
+
 1. Shakespeare's complete works.
 2. A sample from the Gutenberg Library.
 3. Both of the above combined.
@@ -36,14 +37,14 @@ Once done, you can now query your C-Trie for Autocomplete
 suggestions:
 
     > autocomplete.suggest "ther"
-=> ["there", "therefore", "therefrom", "thereof", "thereon", "therein", "thereby", "thereto", "thereupon", "thereunto", "thereabouts", "thereabout", "thereafter", "thereat", "therewithal", "therewith", "theresa", "thersites", "thermometer", "thermo"]
+    => ["there", "therefore", "therefrom", "thereof", "thereon", "therein", "thereby", "thereto", "thereupon", "thereunto", "thereabouts", "thereabout", "thereafter", "thereat", "therewithal", "therewith", "theresa", "thersites", "thermometer", "thermo"]
 
 Since creating a C-Trie from a corpus takes time, you may want to save
 or load the C-Trie:
 
     > autocomplete.dump "./data/extended-sample.robject"
     Wrote C-Trie to: ./data/extended-sample.robject
-=> nil 
+    => nil 
 
 Then you can load that C-Trie later for Autocompleting fun:
 
@@ -52,6 +53,7 @@ Then you can load that C-Trie later for Autocompleting fun:
 ## Algorithm
 
 This library has 6 featured Classes:
+
 1. Autocomplete
 2. CharNode
 3. Collector
@@ -73,7 +75,7 @@ the prefix to the results of the Collector and returns an
 array.
 
     > autocomplete.suggest "ther"
-=> ["there", "therefore", "therefrom", "thereof", "thereon", "therein", "thereby", "thereto", "thereupon", "thereunto", "thereabouts", "thereabout", "thereafter", "thereat", "therewithal", "therewith", "theresa", "thersites", "thermometer", "thermo"]
+    => ["there", "therefore", "therefrom", "thereof", "thereon", "therein", "thereby", "thereto", "thereupon", "thereunto", "thereabouts", "thereabout", "thereafter", "thereat", "therewithal", "therewith", "theresa", "thersites", "thermometer", "thermo"]
 
 The ticklish part of building a tree like this is that you
 can either
@@ -90,6 +92,7 @@ This is a problem, because you want the first 20 words in
 order of frequency.  You need to know how many times a node
 has been seen, and you also need to know how many unique leaves
 exist on that branch.  We can solve this one of three ways:
+
 1. Allow traversal of the tree upword as well as downward.
 Then, on encoding, once you get to the end and discover that
 the last node has only one count [a unique word thus far],
