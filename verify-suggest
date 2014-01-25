@@ -1,0 +1,4 @@
+#!/bin/bash
+
+time \
+  grep -m 25 "^$1" < "$2"

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+time \
+  tr -cs 'a-zA-Z0-9' '[\n*]' < "$1" | \
+  sort | \
+  uniq -ci | \
+  sort -nr | \
+  awk '{ t = $1; $1 = $2; $2 = t; print; }'
