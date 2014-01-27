@@ -37,7 +37,7 @@ Once done, you can now query your C-Trie for Autocomplete
 suggestions:
 
     > autocomplete.suggest "ther"
-    => ["there", "therefore", "therefrom", "thereof", "thereon", "therein", "thereby", "thereto", "thereupon", "thereunto", "thereabouts", "thereabout", "thereafter", "thereat", "therewithal", "therewith", "theresa", "thersites", "thermometer", "thermo"]
+    => ["there 2212", "therefore 627", "thersites 125", "therein 56", "thereof 39", "thereby 26", "thereto 17", "therewithal 9", "thereupon 8", "thereon 7", "thereabouts 4", "thereat 3", "thereunto 3", "therewith 2", "thereabout 1", "thereafter 1"]
 
 Since creating a C-Trie from a corpus takes time, you may want to save
 or load the C-Trie:
@@ -76,7 +76,8 @@ the prefix to the results of the Collector and returns an
 array.
 
     > autocomplete.suggest "ther"
-    => ["there", "therefore", "therefrom", "thereof", "thereon", "therein", "thereby", "thereto", "thereupon", "thereunto", "thereabouts", "thereabout", "thereafter", "thereat", "therewithal", "therewith", "theresa", "thersites", "thermometer", "thermo"]
+    => ["there 2212", "therefore 627", "thersites 125", "therein 56", "thereof 39", "thereby 26", "thereto 17", "therewithal 9", "thereupon 8", "thereon 7", "thereabouts 4", "thereat 3", "thereunto 3", "therewith 2", "thereabout 1", "thereafter 1"]
+
 
 The ticklish part of building a tree like this is that you
 can either
