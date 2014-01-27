@@ -14,15 +14,11 @@ describe "CharNode" do
       assert_equal 2, root.children.length
     end
 
-    it "sorted the children by count" do
-      assert_equal 'b', root.children[0].value
-      assert_equal 'a', root.children[1].value
+    it "counted children types" do
+      assert_equal 1, root.children['a'].count
+      assert_equal 2, root.children['b'].count
     end
 
-    it "counted children types" do
-      assert_equal 2, root.children[0].sort_order
-      assert_equal 1, root.children[1].sort_order
-    end
   end
 
   describe "add a tree branch" do
@@ -34,9 +30,9 @@ describe "CharNode" do
     end
 
     it "has a branch of 'z's" do
-      assert_equal 'z', root.children[0].value
-      assert_equal 'z', root.children[0].children[0].value
-      assert_equal 'z', root.children[0].children[0].children[0].value
+      assert_equal 'z', root.children['z'].value
+      assert_equal 'z', root.children['z'].children['z'].value
+      assert_equal 'z', root.children['z'].children['z'].children['z'].value
     end
   end
 
@@ -49,20 +45,8 @@ describe "CharNode" do
     end
 
     it "can be found by value" do
-      assert_equal root.children[2], root.find_child('c')
+      assert_equal root.children['c'], root.find_child('c')
     end
   end
 
-  describe "add the same new child and flag it as unique" do
-    before do
-      root.add_child 'a', true
-      root.add_child 'a', true
-      root.add_child 'a', true
-    end
-
-    it "thinks it has 3 unique children because we passed in the 'true' flag" do
-      assert_equal 3, root.find_child('a').unique_children
-    end
-
-  end
 end

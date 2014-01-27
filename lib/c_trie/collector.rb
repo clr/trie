@@ -6,38 +6,29 @@ module CTrie
       @tree = tree
     end
 
-    def traverse_fragment(index)
+    def traverse_fragment(prefix='')
       # Terminating condition for recursion.
-      return '' if tree.value == "\n"
-
-      # If the index doesn't land in the first child, then we have to
-      # fastforward to the child node that has this index.
-      i = 0
-      while(index >= tree.children[i].unique_children)
-        index -= tree.children[i].unique_children
-        i += 1
-
-        # Catch if the index is out-of-range, and return nil in that
-        # case because we are out of branches to traverse.
-        if tree.children[i].nil?
-          return nil
-        end
-      end
+      return {"#{prefix} " => tree.count} if tree.value == "\n"
 
       # Otherwise, continue traversing the tree and append characters as
       # we go.
-      collector = self.class.new tree.children[i]
-      return tree.value + collector.traverse_fragment(index)
+      return tree.children.collect do |child|
+        collector = self.class.new child[1]
+        collector.traverse_fragment("#{prefix}#{tree.value}")
+      end
     end
 
     def collect(offset, length)
-      result ||= []
-      while(length > 0) do
-        result << traverse_fragment(offset)
-        offset += 1
-        length -= 1
-      end
-      result.compact
+      # A little array nip and tuck, Law of Demeter be darned. ;-)
+      traverse_fragment.
+        # We get back a nested array of hash values; we only want the
+        # hash values.
+        flatten.
+        map{|hash| hash.to_a.flatten }.
+        # We want the results sorted by the count.
+        sort{|a, b| b[1] <=> a[1]}.
+        # Join the fragment and the count int a string.
+        map(&:join)[offset, length]
     end
   end
 end

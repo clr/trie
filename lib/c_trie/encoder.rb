@@ -6,11 +6,12 @@ module CTrie
       @tree = tree
     end
 
-    def encode(word, unique=false)
+    def encode(word)
       node = @tree
-      (word + "\n").each_char do |char|
-        node = node.add_child char, unique
+      word.each_char do |char|
+        node = node.add_child char
       end
+      node.add_child "\n"
     end
   end
 end

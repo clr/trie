@@ -14,7 +14,7 @@ describe "Finder" do
 
     it "finds the node matching the string" do
       node = finder.find("the")
-      assert_equal node, root.children[0].children[0].children[0]
+      assert_equal node, root.children['t'].children['h'].children['e']
     end
   end
 

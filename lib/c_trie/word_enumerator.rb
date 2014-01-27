@@ -3,8 +3,9 @@ module CTrie
     attr :file
 
     def initialize(filename)
-      @file = File.open filename, 'r'
-      @line = []
+      @file  = File.open filename, 'r'
+      @line  = []
+      @count = 0
     end
 
     def close
@@ -25,5 +26,15 @@ module CTrie
       end
       @file.rewind
     end
+
+    def each_with_index(&block)
+      while !@file.eof?
+        @count += 1
+        yield [get_word, @count]
+      end
+      @file.rewind
+      @count = 0
+    end
+
   end
 end

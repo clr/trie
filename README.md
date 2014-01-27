@@ -48,7 +48,8 @@ or load the C-Trie:
 
 Then you can load that C-Trie later for Autocompleting fun:
 
-    > autocomplete = CTrie::Autocomplete.load "./data/extended-sample.robject"
+    > autocomplete = CTrie::Autocomplete.new
+    > autocomplete.load "./data/extended-sample.robject"
 
 ## Algorithm
 

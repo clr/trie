@@ -1,38 +1,29 @@
 module CTrie
   class CharNode
-    attr_accessor :value, :unique_children, :sort_order, :children
+    attr_accessor :value, :count, :children
 
     def initialize(char)
       @value           = char
-      @unique_children = 0
-      @sort_order      = 1
-      @children        = []
+      @count           = 1
+      @children        = {}
     end
 
-    def add_child(char, unique=false)
-
+    def add_child(char)
       # Increment this node's sort order if the letter already exists.
       if node = find_child(char)
-        node.unique_children += 1 if unique
-        node.sort_order += 1
+        node.count += 1
       # Otherwise create a new node for the letter.
       else
         node = CharNode.new char
-        node.unique_children += 1 if unique
-        children << node
+        children[char] = node
       end
 
-      sort_children!
       return node
     end
 
     def find_child(char)
-      children.find{|child| child.value == char}
+      children[char]
     end
 
-    private
-    def sort_children!
-      children.sort!{|a,b| b.sort_order <=> a.sort_order}
-    end
   end
 end
