@@ -1,18 +1,17 @@
-module CTrie
-  class Finder
+module Trie
+  class Encoder
     attr :tree
 
     def initialize(tree)
       @tree = tree
     end
 
-    def find(word)
+    def encode(word)
       node = @tree
       word.each_char do |char|
-        node = node.find_child char
-        break if node.nil?
+        node = node.add_child char
       end
-      node
+      node.add_child "\n"
     end
   end
 end

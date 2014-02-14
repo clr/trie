@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'c_trie/version'
+require 'trie/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "c_trie"
-  spec.version       = CTrie::VERSION
+  spec.name          = "trie"
+  spec.version       = Trie::VERSION
   spec.authors       = ["CLR"]
   spec.email         = ["clr@port49.com"]
   spec.summary       = %q{Implements an autocomplete library using a C-Trie.}

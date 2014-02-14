@@ -1,7 +1,7 @@
 require File.expand_path('../helper', __FILE__)
 
 describe "WordEnumerator" do
-  let(:word_enumerator){ CTrie::WordEnumerator.new SHAKESPEARE }
+  let(:word_enumerator){ Trie::WordEnumerator.new SHAKESPEARE }
 
   describe "extracting words" do
     it "gets one word at a time" do

@@ -1,4 +1,4 @@
-# C-Trie
+# Trie
 
 1. Search around for a tree structure that implicitly
 knows how many unique leaves exist downstream while

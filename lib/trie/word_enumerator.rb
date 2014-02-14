@@ -1,4 +1,4 @@
-module CTrie
+module Trie
   class WordEnumerator
     attr :file
 

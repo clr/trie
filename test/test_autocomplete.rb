@@ -3,7 +3,7 @@ require File.expand_path('../helper', __FILE__)
 describe "Autocomplete" do
 
   describe "finishing my word" do
-    let(:autocomplete){ CTrie::Autocomplete.new SHAKESPEARE }
+    let(:autocomplete){ Trie::Autocomplete.new SHAKESPEARE }
     let(:result){
       ["the 27843", "thee 3181", "they 2534", "then 2223", "there 2212", "their 2079",
        "them 1980", "these 1327", "therefore 627", "themselves 159", "thersites 125",
@@ -18,8 +18,8 @@ describe "Autocomplete" do
 
   end
 
-  describe "dump and load C-Trie" do
-    let(:autocomplete){ CTrie::Autocomplete.new "#{SHAKESPEARE}.short" }
+  describe "dump and load Trie" do
+    let(:autocomplete){ Trie::Autocomplete.new "#{SHAKESPEARE}.short" }
     let(:result){
       ["the 75", "thee 11", "then 6", "their 4", "they 2", "thereby 1", "there 1"]
     }
@@ -27,7 +27,7 @@ describe "Autocomplete" do
     it "dumps, loads, suggests" do
       test_filename = "#{SHAKESPEARE}.test_output"
       autocomplete.dump test_filename
-      autocomplete = CTrie::Autocomplete.new
+      autocomplete = Trie::Autocomplete.new
       autocomplete.load test_filename
       assert_equal result, autocomplete.suggest('the')
 

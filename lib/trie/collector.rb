@@ -1,4 +1,4 @@
-module CTrie
+module Trie
   class Collector
     attr :tree
 

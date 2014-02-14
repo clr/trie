@@ -1,10 +1,10 @@
 require File.expand_path('../helper', __FILE__)
 
 describe "Collector" do
-  let(:root){ CTrie::CharNode.new '' }
-  let(:encoder){ CTrie::Encoder.new(root) }
-  let(:finder){ CTrie::Finder.new(root) }
-  let(:collector){ CTrie::Collector.new(root) }
+  let(:root){ Trie::CharNode.new '' }
+  let(:encoder){ Trie::Encoder.new(root) }
+  let(:finder){ Trie::Finder.new(root) }
+  let(:collector){ Trie::Collector.new(root) }
 
   # This should sort itself out to roughly the following tree:
   # theory

@@ -1,7 +1,7 @@
 require File.expand_path('../helper', __FILE__)
 
 describe "CharNode" do
-  let(:root){ CTrie::CharNode.new '' }
+  let(:root){ Trie::CharNode.new '' }
 
   describe "add children" do
     before do

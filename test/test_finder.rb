@@ -1,9 +1,9 @@
 require File.expand_path('../helper', __FILE__)
 
 describe "Finder" do
-  let(:root){ CTrie::CharNode.new '' }
-  let(:encoder){ CTrie::Encoder.new(root) }
-  let(:finder){ CTrie::Finder.new(root) }
+  let(:root){ Trie::CharNode.new '' }
+  let(:encoder){ Trie::Encoder.new(root) }
+  let(:finder){ Trie::Finder.new(root) }
 
   describe "find common node" do
     before do

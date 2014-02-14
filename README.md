@@ -1,6 +1,6 @@
-# C-Trie
+# Trie
 
-This library implements an autocomplete feature as a C-Trie.
+This library implements an autocomplete feature as a Trie.
 
 ## Installation
 
@@ -23,32 +23,32 @@ Three dictionaries are included to practice with:
 At the Ruby prompt, you can load a dictionary by creating a
 new Autocomplete object:
 
-    > autocomplete = CTrie::Autocomplete.new "./data/extended-sample.txt"
+    > autocomplete = Trie::Autocomplete.new "./data/extended-sample.txt"
 
 While loading, it should resemble:
 
     ************************************
-        NOW ENCODING C-TRIE FROM
+        NOW ENCODING TRIE FROM
      ./data/extended-sample.txt
     ************************************
     ...........
 
-Once done, you can now query your C-Trie for Autocomplete
+Once done, you can now query your Trie for Autocomplete
 suggestions:
 
     > autocomplete.suggest "ther"
     => ["there 2212", "therefore 627", "thersites 125", "therein 56", "thereof 39", "thereby 26", "thereto 17", "therewithal 9", "thereupon 8", "thereon 7", "thereabouts 4", "thereat 3", "thereunto 3", "therewith 2", "thereabout 1", "thereafter 1"]
 
-Since creating a C-Trie from a corpus takes time, you may want to save
-or load the C-Trie:
+Since creating a Trie from a corpus takes time, you may want to save
+or load the Trie:
 
     > autocomplete.dump "./data/extended-sample.robject"
-    Wrote C-Trie to: ./data/extended-sample.robject
+    Wrote Trie to: ./data/extended-sample.robject
     => nil 
 
-Then you can load that C-Trie later for Autocompleting fun:
+Then you can load that Trie later for Autocompleting fun:
 
-    > autocomplete = CTrie::Autocomplete.new
+    > autocomplete = Trie::Autocomplete.new
     > autocomplete.load "./data/extended-sample.robject"
 
 ## Algorithm
@@ -66,7 +66,7 @@ The code path can be outlined roughly:
 An Autocomplete object is a coordinator.  It iterates through the
 corpus using a WordEnumerator object.  Each word emitted is sent
 through an Encoder.  The Encoder builds a tree using a CharNode
-to represent a single letter at each node.  That is how the C-Trie
+to represent a single letter at each node.  That is how the Trie
 is built.  To query it, an Autocomplete object [still a coordinator]
 runs a Finder object on the tree of CharNodes.  This returns a
 CharNode that represents the prefix match if there is one.  This
@@ -95,7 +95,7 @@ search for one. [Adding that as a TODO.]
 
 ## Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/c_trie/fork )
+1. Fork it ( http://github.com/<my-github-username>/trie/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

@@ -1,4 +1,4 @@
-module CTrie
+module Trie
   class CharNode
     attr_accessor :value, :count, :children
 

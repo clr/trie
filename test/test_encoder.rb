@@ -1,8 +1,8 @@
 require File.expand_path('../helper', __FILE__)
 
 describe "Encoder" do
-  let(:root){ CTrie::CharNode.new '' }
-  let(:encoder){ CTrie::Encoder.new(root) }
+  let(:root){ Trie::CharNode.new '' }
+  let(:encoder){ Trie::Encoder.new(root) }
 
   describe "add one word" do
     before do

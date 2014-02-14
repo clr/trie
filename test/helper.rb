@@ -4,4 +4,4 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'minitest/spec'
 require 'minitest/autorun'
 
-require File.join('lib','c_trie')
+require File.join('lib','trie')
